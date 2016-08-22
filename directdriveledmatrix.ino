@@ -233,7 +233,19 @@ six, seven, eight, nine, zero, one, two, three, four, five,
 
 int pattern = 0;
 
+void displayNumber(int num){
+  int numPatterns = num % 10;
+  for (int i = 0; i < numPatterns; i++){
+    int divisor = pow(10, numPatterns-i-1);
+    int n = num / divisor;
+    num = num % divisor;
+    Serial.print(n);
+
+  }
+}
+
 void setup() {
+  displayNumber(1234);
   // sets the pins as output
   for (int i = 0; i < 16; i++) {
     pinMode(pins[i], OUTPUT);
